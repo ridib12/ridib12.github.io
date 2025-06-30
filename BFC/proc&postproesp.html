@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Select your language</title>
+  <style>
+    .background {
+      margin: 0;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+      font-family: Arial, sans-serif;
+    }
+
+    .group-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .group-container h1 {
+      font-size: 3rem;
+      margin: 10px 0;
+    }
+
+    .group-container p {
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+
+    .button-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .button-64 {
+  background-image: linear-gradient(144deg, #AF40FF, #5B42F3 50%, #00DDEB);
+  border: 0;
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  cursor: pointer;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+  width: 240px;     /* ✅ Fixed width */
+  height: 90px;     /* ✅ Fixed height */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+.button-64 span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;      /* match button size */
+  height: 100%;
+  background-color: rgb(5, 6, 45);
+  color: white;
+  border-radius: 8px;
+  padding: 0 10px;   /* add inner spacing if needed */
+  text-align: center;
+  white-space: normal;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+  transition: background 0.3s ease;
+  box-sizing: border-box;
+}
+
+.button-64:hover span {
+  background: none;
+}
+.navigation {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  margin: 20px;
+  position:absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.navigation a {
+  text-decoration: underline;
+  color: #000000;
+  padding: 0 5px;
+}
+
+.navigation a:hover {
+  text-decoration: none;
+}
+
+.navigation span {
+  color: #555;
+  padding: 0 5px;
+}
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    padding: 20px;
+    gap: 30px;
+  }
+  
+  .logo {
+    height: 60px;
+    object-fit: contain;
+    position:absolute;
+    top: 20px;
+    right: 20px;
+  }
+  </style>
+</head>
+<body>
+  <div class="background">
+    <header>
+        <div class="logo-container">
+          <img src="BFC Logo/bfcadjlogo.png" alt="Bradley Free Clinic Logo" class="logo" />
+        </div>
+      </header>
+    <nav class="navigation">
+        <a href="Page1.html">Home</a>
+        <span>&gt;</span>
+        <a href="lang_select_deep_clean.html">Language Selection</a>
+        
+      </nav>
+    <div class="group-container">
+      <h1>Select from the following:</h1>
+      
+    </div>
+    <div class="button-grid">
+      <button class="button-64" onclick="window.location.href='mahrukhesp.html';">
+        <span>Procedure</span>
+      </button>
+      <button class="button-64" onclick="window.location.href='Sarah_Spanish.html';">
+        <span>Post-Procedure</span>
+      </button>
+      <button class="button-64" onclick="window.location.href='Spanish_deep_cleaning.html';">
+        <span>Provider to patient instructions</span>
+      </button>
+      <!-- <button class="button-64" onclick="window.location.href='Dari_deep_cleaning';">
+        <span>Dari</span>
+      </button> -->
+    </div>
+  </div>
+</body>
+</html>

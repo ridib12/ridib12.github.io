@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+    <style>
+    .background {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+      font-family: Arial, sans-serif;
+    }
+    body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f9fafa;
+    color: #333;
+  }
+  
+  /* Logo Styling */
+  .logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    padding: 20px;
+    gap: 30px;
+  }
+  
+  .logo {
+    height: 60px;
+    object-fit: contain;
+    position:absolute;
+    top: 20px;
+    right: 20px;
+  }
+  
+  /* Main Container Styling */
+  .container {
+    max-width: 800px;
+    margin: 40px auto;
+    text-align: center;
+  }
+  
+  h1 {
+    font-size: 28px;
+    margin-bottom: 30px;
+    color: #2a2a2a;
+  }
+  
+  /* Video Styling */
+  video {
+    width: 100%;
+    max-width: 700px;
+    height: auto;
+    margin: 20px auto;
+    display: block;
+    border-radius: 10px;
+    box-shadow: 0 0 8px rgba(0, 0, 0, 0.1);
+  }
+  .navigation {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  margin: 20px;
+  position:absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.navigation a {
+  text-decoration: underline;
+  color: #000000;
+  padding: 0 5px;
+}
+
+.navigation a:hover {
+  text-decoration: none;
+}
+
+.navigation span {
+  color: #555;
+  padding: 0 5px;
+}
+  /* Navigation Buttons */
+  /* .navigation-buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 30px;
+  }
+  
+  .navigation-buttons button {
+    padding: 12px 24px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  } */
+  
+  /* .navigation-buttons button:hover {
+    background-color: #45a049;
+  } */
+  
+  /* Responsive Adjustments */
+@media (max-width: 600px) {
+    .logo-container {
+      flex-direction: column;
+      gap: 15px;
+    }
+  
+/* .navigation-buttons {
+      flex-direction: column;
+      gap: 15px;
+    } */
+
+  }
+</style>  
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Deep Cleaning Instructions</title>
+  <link rel="stylesheet" href="styles.css" />
+  
+</head>
+<body>
+    <div class="background">
+    <nav class="navigation">
+            <a href="Page1.html">Home</a>
+            <span>&gt;</span>
+            <a href="lang_select_deep_clean.html">Language Selection</a>
+            <span>&gt;</span>
+            <a href="procedure&post-pro.html">Procedure/Post-Procedure</a>
+    </nav>
+        
+  <header>
+    <div class="logo-container">
+      <img src="BFC Logo/bfcadjlogo.png" alt="Bradley Free Clinic Logo" class="logo" />
+    </div>
+  </header>
+  
+  <div class="container">
+    <h1>Deep Cleaning Procedure</h1>
+    
+    <video controls>
+      <source src="MP4 files/Deep Cleaning - Instructions.mp4" type="video/mp4">
+      Your browser does not support the video tag.
+    </video>
+
+    <!-- <div class="navigation-buttons">
+      <button onclick="window.location.href='lang_select_deep_clean';">Back</button>
+      <button onclick="window.location.href='thank_you_page';">Next</button>
+    </div> -->
+  </div>
+</body>
+</html>

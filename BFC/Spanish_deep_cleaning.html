@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Flip Audio Buttons</title>
+
+  <style>
+    .background {
+        margin: 0;
+  min-height: 100vh;         /* full viewport height */
+  display: flex;
+  flex-direction: column;    /* stack header + buttons vertically */
+  align-items: center;       /* center horizontally */
+  justify-content: center; 
+	background: #EEAECA;
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    }
+    .group-container {
+        text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .button-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 80px;
+      justify-content: center;
+    }
+
+    .flip-container {
+      perspective: 1000px;
+      width: 160px;
+      height: 70px;
+      cursor: pointer;
+    }
+
+    .flipper {
+      position: relative;
+      width: 100%;
+      height: 100%;
+      transition: transform 0.6s;
+      transform-style: preserve-3d;
+    }
+
+    .flip-container.flipped .flipper {
+      transform: rotateY(180deg);
+    }
+
+    .front, .back {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      backface-visibility: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 6px;
+    }
+
+    .back {
+      transform: rotateY(180deg);
+    }
+
+    .button-64 {
+      align-items: center;
+      background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+      border: 0;
+      border-radius: 8px;
+      box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+      box-sizing: border-box;
+      color: #FFFFFF;
+      display: flex;
+      font-family: Phantomsans, sans-serif;
+      font-size: 20px;
+      justify-content: center;
+      line-height: 1em;
+      max-width: 100%;
+      min-width: 140px;
+      padding: 3px;
+      text-decoration: none;
+      user-select: none;
+      touch-action: manipulation;
+      white-space: nowrap;
+      cursor: pointer;
+    }
+
+    .button-64 span {
+      background-color: rgb(5, 6, 45);
+      padding: 16px 24px;
+      border-radius: 6px;
+      width: 100%;
+      height: 100%;
+      transition: 300ms;
+      word-wrap: break-word;     /* Allow breaking long words */
+  white-space: normal;       /* Allow wrapping to new lines */
+  overflow-wrap: break-word; /* Fallback for better compatibility */
+  text-align: center;        /* Optional: center the wrapped text */
+    }
+
+    .button-64:hover span {
+      background: none;
+    }
+    .navigation {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  margin: 20px;
+  position:absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.navigation a {
+  text-decoration: underline;
+  color: #000000;
+  padding: 0 5px;
+}
+
+.navigation a:hover {
+  text-decoration: none;
+}
+
+.navigation span {
+  color: #555;
+  padding: 0 5px;
+}
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    padding: 20px;
+    gap: 30px;
+  }
+  
+  .logo {
+    height: 60px;
+    object-fit: contain;
+    position:absolute;
+    top: 20px;
+    right: 20px;
+  }
+  </style>
+</head>
+<body>
+    <body class="background">
+      <header>
+        <div class="logo-container">
+          <img src="BFC Logo/bfcadjlogo.png" alt="Bradley Free Clinic Logo" class="logo" />
+        </div>
+      </header>
+      <nav class="navigation">
+        <a href="Page1.html">Home</a>
+        <span>&gt;</span>
+        <a href="lang_select_deep_clean.html">Language Selection</a>
+        <span>&gt;</span>
+        <a href="proc&postproesp.html">Procedure/Post-Procedure/Provider to Patient Instructions</a>
+      </nav>
+        <div class="button-grid" id="all-buttons"></div>
+  <!-- Group 1
+  <div class="group-container">
+    <h2>Group 1</h2>
+    <div class="button-grid" id="group1"></div>
+  </div>
+
+  Group 2 -->
+  <!-- <div class="group-container">
+    <h2>Group 2</h2>
+    <div class="button-grid" id="group2"></div>
+  </div> --> 
+
+  <script>
+    const buttonData = [
+      { front: "Lean back", back: "Reclinarse", audio: "MP3 files/Reclinarse.mp3" },
+      { front: "Do you feel any discomfort?", back: "¿Sientes alguna molestia?", audio: "MP3 files/Sientes alguna mole.mp3" },
+      { front: "I'll be numbing your gums", back: "Te adormeceré las encías", audio: "MP3 files/Te adormeceré las en.mp3" },
+      { front: "Open wide", back: "Abra bien la boca", audio: "MP3 files/Abra bien la boca.mp3" },
+      { front: "Turn your head slightly toward me", back: "Gire un poco la cabeza hacia mí", audio: "MP3 files/Gire un poco la cabe.mp3" },
+      { front: "Open a little wider", back: "Abra un poco más.", audio: "MP3 files/Abra un poco más .mp3" },
+      { front: "Try to keep your tongue relaxed", back: "Trate de relajar la lengua.", audio: "MP3 files/Trate de relajar la .mp3" },
+      { front: "Breathe through your nose", back: "Respire por la nariz.", audio: "MP3 files/Respire por la nariz.mp3" },
+      { front: "You might feel some pressure. Let me know if it hurts.", back: "Puede sentir un poco de presión. Avíseme si le duele.", audio: "MP3 files/Puede sentir un poco.mp3" },
+      { front: "I’m going to rinse now. Just relax your mouth.", back: "Oy a enjuagar ahora. Relaje la boca.", audio: "MP3 files/oy a enjuagar ahora .mp3" },
+      { front: "Close your lips gently around the suction.", back: "Cierre los labios suavemente alrededor del succionador.", audio: "MP3 files/Cierre los labios su.mp3" },
+      { front: "Tilt your chin up just a bit.", back: "Levante un poco la barbilla.", audio: "MP3 files/Levante un poco la b.mp3" },
+      { front: "Open", back: "Abierto", audio: "MP3 files/Abierto.mp3" },
+      { front: "Close", back: "Cierra", audio: "MP3 files/Cierra.mp3" },
+    ];
+
+    function flipAndPlay(element, audiofile) {
+      element.classList.add('flipped');
+      const tempAudio = new Audio(audiofile);
+      tempAudio.play();
+      tempAudio.onended = () => {
+        element.classList.remove('flipped');
+      };
+    }
+
+    buttonData.forEach((btn, index) => {
+      const container = document.createElement('div');
+      container.className = 'flip-container';
+      container.setAttribute('onclick', `flipAndPlay(this, '${btn.audio}')`);
+
+      const flipper = document.createElement('div');
+      flipper.className = 'flipper';
+
+      const front = document.createElement('div');
+      front.className = 'front';
+      front.innerHTML = `<button class="button-64" role="button"><span class="text">${btn.front}</span></button>`;
+
+      const back = document.createElement('div');
+      back.className = 'back';
+      back.innerHTML = `<button class="button-64" role="button"><span class="text">${btn.back}</span></button>`;
+
+      flipper.appendChild(front);
+      flipper.appendChild(back);
+      container.appendChild(flipper);
+
+      document.getElementById('all-buttons').appendChild(container);
+    });
+  </script>
+</body>
+</html>
+

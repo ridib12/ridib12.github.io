@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<style>
+.background {
+margin: 0;
+  min-height: 100vh;         /* full viewport height */
+  display: flex;
+  flex-direction: column;    /* stack header + buttons vertically */
+  align-items: center;       /* center horizontally */
+  justify-content: center; 
+	background: #EEAECA;
+    background: radial-gradient(circle, rgba(238, 174, 202, 1) 0%, rgba(148, 187, 233, 1) 100%);
+    }
+    .group-container {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+
+    .group-container h1 {
+      font-size: 3rem;
+      margin: 10px 0;
+    }
+
+    .group-container p {
+      font-size: 1.5rem;
+      margin: 10px 0;
+    }
+
+    .button-grid {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 40px;
+      justify-content: center;
+    }
+
+    .button-64 {
+  background-image: linear-gradient(144deg,#AF40FF, #5B42F3 50%,#00DDEB);
+  border: 0;
+  border-radius: 12px;
+  padding: 4px;
+  box-shadow: rgba(151, 65, 252, 0.2) 0 15px 30px -5px;
+  cursor: pointer;
+  font-family: Phantomsans, sans-serif;
+  font-size: 20px;
+
+  /* New additions below */
+  width: 220px;        /* Fixed width */
+  height: 80px;        /* Fixed height */
+  display: flex;       /* Center child span */
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+}
+
+    .button-64 span {
+  display: block;
+  background-color: rgb(5, 6, 45);
+  color: white;
+  width: 100%;
+  height: 100%;
+  line-height: 1.2;
+  border-radius: 8px;
+  transition: background 0.3s ease;
+
+  /* Center the text */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0 10px; /* Horizontal padding only */
+  box-sizing: border-box;
+}
+.navigation {
+  font-family: Arial, sans-serif;
+  font-size: 20px;
+  margin: 20px;
+  position:absolute;
+  top: 20px;
+  left: 20px;
+}
+
+.navigation a {
+  text-decoration: underline;
+  color: #000000;
+  padding: 0 5px;
+}
+
+.navigation a:hover {
+  text-decoration: none;
+}
+
+.navigation span {
+  color: #555;
+  padding: 0 5px;
+}
+.logo-container {
+    display: flex;
+    justify-content: center;
+    align-items: right;
+    padding: 20px;
+    gap: 30px;
+  }
+  
+  .logo {
+    height: 60px;
+    object-fit: contain;
+    position:absolute;
+    top: 20px;
+    right: 20px;
+  }
+</style>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Education</title>
+    <link rel="stylesheet" href="Page5Style.css">
+
+</head>
+<body class="background">
+   <header>
+      <div class="logo-container">
+        <img src="BFC Logo/bfcadjlogo.png" alt="Bradley Free Clinic Logo" class="logo" />
+      </div>
+    </header>
+   <nav class="navigation">
+      <a href="Page1.html">Home</a>
+      <span>&gt;</span>
+      <a href="lang_select_deep_clean.html">Language Selection</a>
+      <span>&gt;</span>
+      <a href="procedure&post-pro.html">Procedure/Post-Procedure</a>
+    </nav>
+   <h1 style="text-align: center;">Click On The Titles Below To Learn More About Each Topic</h1>
+ 
+   <div class="button-container">
+     <button class="button-64" onclick="window.location.href='https://www.cda.org/wp-content/uploads/gum_disease_english.pdf'">
+       <span>Periodontal/Gum Disease</span>
+     </button>
+ 
+     <button class="button-64" onclick="window.location.href='https://www.mouthhealthy.org/all-topics-a-z/brushing-your-teeth'">
+       <span>Proper Brushing</span>
+     </button>
+ 
+     <button class="button-64" onclick="window.location.href='https://www.ada.org/sitecore/content/ADA-Organization/ADA/MouthHealthy/home/all-topics-a-z/scaling-and-root-planing'">
+       <span>Post-Procedure Care and Steps</span>
+     </button>
+   </div>
+ </body>
+</html>
